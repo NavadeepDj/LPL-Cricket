@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-semibold mb-4">Add Player</h2>
+    <form method="post" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium">Name</label>
+        <input type="text" name="name" class="mt-1 block w-full border rounded px-3 py-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Role</label>
+        <select name="role" class="mt-1 block w-full border rounded px-3 py-2">
+          <option value="batsman">Batsman</option>
+          <option value="bowler">Bowler</option>
+          <option value="allrounder">All-rounder</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Add</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

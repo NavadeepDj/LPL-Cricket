@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-semibold mb-4">Add Match</h2>
+    <form method="post">
+      <div class="mb-4">
+        <label class="block text-sm font-medium">Match name</label>
+        <input type="text" name="match_name" class="mt-1 block w-full border rounded px-3 py-2" required>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto border-collapse">
+          <thead>
+            <tr class="text-left border-b">
+              <th class="px-2 py-2">Player</th>
+              <th class="px-2 py-2">Runs</th>
+              <th class="px-2 py-2">Balls</th>
+              <th class="px-2 py-2">Balls Bowled</th>
+              <th class="px-2 py-2">Runs Conceded</th>
+              <th class="px-2 py-2">Wickets</th>
+              <th class="px-2 py-2">Maidens</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in players %}
+            <tr class="border-b">
+              <td class="px-2 py-2">{{ p.name }}</td>
+              <td class="px-2 py-2"><input type="number" name="runs_{{ p.id }}" min="0" class="w-20 border rounded px-2 py-1"></td>
+              <td class="px-2 py-2"><input type="number" name="balls_{{ p.id }}" min="0" class="w-20 border rounded px-2 py-1"></td>
+              <td class="px-2 py-2"><input type="number" name="balls_bowled_{{ p.id }}" min="0" class="w-24 border rounded px-2 py-1"></td>
+              <td class="px-2 py-2"><input type="number" name="runs_conceded_{{ p.id }}" min="0" class="w-24 border rounded px-2 py-1"></td>
+              <td class="px-2 py-2"><input type="number" name="wickets_{{ p.id }}" min="0" class="w-16 border rounded px-2 py-1"></td>
+              <td class="px-2 py-2"><input type="number" name="maidens_{{ p.id }}" min="0" class="w-16 border rounded px-2 py-1"></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4">
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Save Match</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

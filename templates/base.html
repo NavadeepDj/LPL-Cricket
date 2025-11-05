@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cricket Stats Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <nav class="bg-white shadow-sm">
+      <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="font-semibold text-xl">Cricket Stats</div>
+        <div class="space-x-4">
+          <a href="/" class="text-sm text-blue-600">Home</a>
+          <a href="/add-player" class="text-sm text-blue-600">Add Player</a>
+          <a href="/add-match" class="text-sm text-blue-600">Add Match</a>
+          <a href="/leaderboard" class="text-sm text-blue-600">Leaderboard</a>
+        </div>
+      </div>
+    </nav>
+    <main class="max-w-4xl mx-auto mt-8 px-4">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="mb-4">
+            {% for msg in messages %}
+              <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded mb-2">{{ msg }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
